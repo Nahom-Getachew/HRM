@@ -39,9 +39,9 @@ return new class extends Migration
         });
 
         DB::table('users')->insert([
-            'name' => 'Admin User',
+            'name' => 'Admin',
             'email' => 'admin@example.com',
-            'password' => Hash::make('1234567890'),
+            'password' => Hash::make('1234'),
         ]);
     }
 

@@ -47,8 +47,8 @@
             
             <flux:dropdown>
                 <flux:profile 
-                    :name="App\Models\Company::find(id: session('company_id'))->name??'Select Company'"
-                    :initials="App\Models\Company::find(id: session('company_id'))->initials??'N/A'"
+                    :name="App\Models\Company::find(session('company_id'))->name??'Select Company'"
+                    :initials="App\Models\Company::find(session('company_id'))->initials??'N/A'"
                     icon-trailing="chevrons-up-down">
                 </flux:profile>
                 <flux:menu>
@@ -57,7 +57,9 @@
                     @endforeach
                 </flux:menu>     
             </flux:dropdown>
-
+            @if (session()->has('errorMsg'))
+             <x-auth-session-status class="text-center text-red-500" :status="session('errorMsg')" />
+            @endif
             <!-- Desktop User Menu -->
             <flux:dropdown class="hidden lg:block" position="bottom" align="start">
                 <flux:profile

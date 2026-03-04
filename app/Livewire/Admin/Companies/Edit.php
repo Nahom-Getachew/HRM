@@ -28,7 +28,7 @@ class Edit extends Component
         $this->company = Company::find($id);
     }
 
-    public function update(): void
+    public function update(): mixed
     {
         $this->validate();
 
@@ -43,11 +43,11 @@ class Edit extends Component
 
         session()->flash('success', 'Company updated successfully.');
         
-        $this->redirectIntended('companies.index');
+        return $this->redirectIntended(route('companies.index'), true);
     }
     
     public function render()
     {
-        return view('livewire.admin.companies.create');
+        return view('livewire.admin.companies.edit');
     }
 }

@@ -1,14 +1,15 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+
+@source "../../vendor/power-components/livewire-powergrid/src/Themes/*.php";
+
+@source "../../vendor/power-components/livewire-powergrid/src/Themes/Tailwind.php";
+
 @import '../../vendor/livewire/flux/dist/flux.css';
 
-@source '../views';
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../vendor/livewire/flux-pro/stubs/**/*.blade.php';
-@source '../../vendor/livewire/flux/stubs/**/*.blade.php';
 
-@custom-variant dark (&:where(.dark, .dark *));
+/* Removed unsupported @custom-variant at-rule */
 
-@theme {
+:root {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
     --color-zinc-50: #fafafa;
@@ -60,29 +61,52 @@
 }
 
 [data-flux-field]:not(ui-radio, ui-checkbox) {
-    @apply grid gap-2;
+    display: grid;
+    gap: 0.5rem;
 }
 
 [data-flux-label] {
-    @apply  !mb-0 !leading-tight;
+    margin-bottom: 0 !important;
+    line-height: 1.25 !important;
 }
 
 input:focus[data-flux-control],
 textarea:focus[data-flux-control],
 select:focus[data-flux-control] {
-    @apply outline-hidden ring-2 ring-accent ring-offset-2 ring-offset-accent-foreground;
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-accent), 0 0 0 4px var(--color-accent-foreground);
 }
 
 .table {
-    @apply w-full;
+    width: 100%;
 }
 
 .table th {
-    @apply px-6 py-3 text-xs font-medium text-nos-800 dark:text-nos-200 uppercase tracking-w;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #08183b; /* text-nos-800 */
+}
+.dark .table th {
+    color: #cce5d5; /* text-nos-200 */
 }
 
 .table td {
-    @apply px-6 py-4 whitespace-nowrap text-sm text-nos-700 dark:text-nos-100;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    white-space: nowrap;
+    font-size: 0.875rem;
+    color: #08183b; /* text-nos-700 */
+}
+.dark .table td {
+    color: #e6eaf2; /* text-nos-100 */
 }
 /* \[:where(&)\]:size-4 {
     @apply size-4;

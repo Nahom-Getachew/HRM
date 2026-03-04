@@ -17,19 +17,19 @@ class EmployeesSeeder extends Seeder
     {
         $faker = Factory::create();
         $companies = Company::all();
-        foreach($companies as $company)
+        foreach($companies as $key => $company)
         {
             foreach($company->departments  as $department)
             {
-                foreach($department->designations as $designation)
+                foreach($department->designations as $key => $designation)
                 {
                     for($i = 0; $i < 3; $i++)
                     {
                         Employee::create([
                             'designation_id' => $designation->id,
                             'name' => $faker->name(),
-                            'email' => $faker->unique()->safeEmail(),
-                            'phone' => $faker->phoneNumber(),
+                            'email' => $faker->unique()->safeEmail,
+                            'phone' => $faker->phoneNumber,
                             'address' =>$faker->address,
                         ]);
                     }

@@ -11,12 +11,12 @@ new class extends Component {
         //return $this->redirectIntended(URL::previous());
     }
 
-    public function selectCompany($id): mixed
+    public function selectCompany($id): void
     {
         //$company = auth()->user()->companies()->findOrFail($companyId);
         
-        session(key: ['company_id' => $this->company->$id]);
-        return $this->redirectIntended(URL::previous(), true);
+        session(['company_id' => $id]);
+        $this->redirectIntended(URL::previous(), true);
     }
 }; ?>
 

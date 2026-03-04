@@ -3,12 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
 use App\Livewire\Admin;
+use App\Livewire\Admin\Dashboard;
 use App\Livewire\settings;
 use Livewire\Volt\Volt;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/', Dashboard::class)->middleware('auth')->name('home');
 
 Route::middleware(['auth', 'verified'])->group( function () {
     Route::get('/dashboard', Admin\Dashboard::class)->name('dashboard');
@@ -23,6 +22,7 @@ Route::middleware(['auth', 'verified'])->group( function () {
 
         Route::prefix('departments')->name('departments.')->group(function (): void{
             Route::get('/', Admin\Departments\Index::class)->name('index');
+            Route::get('/{id}/delete', Admin\Departments\Index::class)->name('delete');
             Route::get('/create', Admin\Departments\Create::class)->name('create');
             Route::get('/{id}/edit', Admin\Departments\Edit::class)->name('edit');
         });

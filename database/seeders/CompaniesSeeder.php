@@ -16,32 +16,34 @@ class CompaniesSeeder extends Seeder
     public function run(): void
     {
         DB::table('companies')->insert([
-            'name' => 'Acme Corporation',
-            'email' => 'info@acmecorp.com',
-            'website' => 'https://www.acmecorp.com',
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
-        DB::table('companies')->insert([
-            'name' => 'Globex Corporation',
-            'email' => 'contact@globex.com',
-            'website' => 'https://www.globex.com',
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
-        DB::table('companies')->insert([
-            'name' => 'Initech',
-            'email' => 'info@initech.com',
-            'website' => 'https://www.initech.com',
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
-        DB::table('companies')->insert([
-            'name' => 'Draco Systems',
-            'email' => 'info@dracosystemseth.com',
-            'website' => 'https://www.dracosystemseth.com',
-            'created_at' => now(),
-            'updated_at' => now(),
+            [
+                'name' => 'Apple',
+                'email' => 'contact@apple.com',
+                'website' => 'https://www.apple.com',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'Google',
+                'email' => 'contact@google.com',
+                'website' => 'https://www.google.com',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'Microsoft',
+                'email' => 'contact@microsoft.com',
+                'website' => 'https://www.microsoft.com',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'Amazon',
+                'email' => 'contact@amazon.com',
+                'website' => 'https://www.amazon.com',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
         ]);
 
         foreach(Company::all() as $key => $company) 

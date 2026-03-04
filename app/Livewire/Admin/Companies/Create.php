@@ -30,7 +30,7 @@ class Create extends Component
         $this->company = new Company();
     }
 
-    public function save(): void
+    public function save(): mixed
     {
         $this->validate();
         if ($this->logo) {
@@ -40,7 +40,7 @@ class Create extends Component
 
         $this->company->save();
         session()->flash('success', 'Company created successfully.');
-        $this->redirectIntended(route('companies.index'));
+        return $this->redirectIntended(route('companies.index'), true);
         
     }
     

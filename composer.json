@@ -1,6 +1,6 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "Draco HRM",
+    "name": "draco/hrm",
     "type": "project",
     "description": "The official Laravel starter kit for Livewire.",
     "keywords": [
@@ -14,10 +14,13 @@
         "laravel/fortify": "^1.30",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1",
-        "livewire/flux": "^2.1.1",
-        "livewire/volt": "^1.7.0"
+        "livewire/flux": "^2.10",
+        "livewire/volt": "^1.7.0",
+        "openspout/openspout": "^5.4",
+        "power-components/livewire-powergrid": "^6.9"
     },
     "require-dev": {
+        "composer/composer": "^2.9",
         "fakerphp/faker": "^1.23",
         "laravel/boost": "^1.8",
         "laravel/pail": "^1.2.2",
@@ -33,7 +36,10 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        },
+        "files": [
+            "app/Providers/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
